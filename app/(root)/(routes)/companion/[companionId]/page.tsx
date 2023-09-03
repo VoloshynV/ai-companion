@@ -8,7 +8,6 @@ interface CompanionIdPageProps {
 }
 
 const CompanionIdPage = async ({ params }: CompanionIdPageProps) => {
-  console.log('🚀 ~ CompanionIdPage ~ params:', params.companionId)
   //TODO: Check subscription
 
   const companion = await prismadb.companion.findUnique({
@@ -16,6 +15,7 @@ const CompanionIdPage = async ({ params }: CompanionIdPageProps) => {
       id: params.companionId,
     },
   })
+  console.log('🚀 ~ CompanionIdPage ~ companion:', companion)
 
   const categories = await prismadb.category.findMany()
 

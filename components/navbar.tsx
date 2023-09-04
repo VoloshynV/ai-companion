@@ -34,7 +34,7 @@ const Navbar = () => {
           Upgrade <Sparkles className='h-4 w-4 fill-white text-white ml-2' />
         </Button>
         <ThemeToggle />
-        <UserButton />
+        <UserButton afterSignOutUrl='/' />
       </div>
     </div>
   )

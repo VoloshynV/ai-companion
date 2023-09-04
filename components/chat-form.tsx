@@ -3,7 +3,7 @@
 import { ChatRequestOptions } from 'ai'
 import { ChangeEvent, FormEvent } from 'react'
 import { Input } from '@/components/ui/input'
-import { Button } from './ui/button'
+import { Button } from '@/components/ui/button'
 import { SendHorizonal } from 'lucide-react'
 
 interface ChatFormProps {

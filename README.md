@@ -8,4 +8,4 @@ You can also create **your own** companion if you are subscribed.
 
 Once you have created your partner, you can edit them or delete them by opening a chat with them. 
 
-For more information, [visit the website](https://ai-companion-voloshynv.vercel.app)
+For more information, [visit the website](https://ai-companion-voloshynv.vercel.app). For login just use you'r Google account

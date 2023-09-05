@@ -11,8 +11,7 @@ import { useProModal } from '@/hooks/use-pro-modal'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
-import { useState } from 'react'
-import { set } from 'zod'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export const ProModal = () => {
@@ -20,6 +19,11 @@ export const ProModal = () => {
   const { toast } = useToast()
 
   const [isLoading, setIsLoading] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const onSubscribe = async () => {
     try {
@@ -37,6 +41,8 @@ export const ProModal = () => {
       setIsLoading(false)
     }
   }
+
+  if (!isMounted) return null
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

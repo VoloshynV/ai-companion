@@ -16,7 +16,7 @@ export async function GET() {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
-    const userSubscription = await prismadb.userSubscription.findFirst({
+    const userSubscription = await prismadb.userSubscription.findUnique({
       where: {
         userId,
       },
@@ -34,7 +34,7 @@ export async function GET() {
     const stripeSession = await stripe.checkout.sessions.create({
       success_url: settingsUrl,
       cancel_url: settingsUrl,
-      payment_method_types: ['card', 'p24'],
+      payment_method_types: ['card'],
       mode: 'subscription',
       billing_address_collection: 'auto',
       customer_email: user.emailAddresses[0].emailAddress,
@@ -46,7 +46,7 @@ export async function GET() {
               name: 'Companion PRO',
               description: 'Create your own Companion',
             },
-            unit_amount: 4599,
+            unit_amount: 4999,
             recurring: {
               interval: 'month',
             },
